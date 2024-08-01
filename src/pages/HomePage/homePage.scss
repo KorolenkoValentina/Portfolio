@@ -1,0 +1,66 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/fonts.scss';
+
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+}
+.about-me-content {
+    margin-top: 60px;
+}
+
+.about-me__item {
+    position: relative;
+
+    p {
+        position: absolute;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .about-me__item--title {
+        top: 7%;
+        left: 14%;
+        width: 107px;
+    }
+
+    .about-me__item--subtitle {
+        bottom: 5%;
+        right: 16%
+    }
+}
+
+.input-group {
+    margin: 30px auto;
+    background: $color_input;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.45);
+    border-radius: 5px;
+
+    .form-control {
+        background-color: $color_input;
+        font-size: 18px;
+        padding: 28px;
+        color: $color_subtitle;
+        border:none;
+    }
+
+    .btn {
+        width: 44px;
+        margin-right: 15px;
+    }
+
+    .btn-photo {
+        background: url(../../assets/images/photo-btn.png) no-repeat center;
+    }
+
+    .btn-send {
+        background: url(../../assets/images/send-btn.svg)no-repeat center;
+    }
+
+
+    
+}

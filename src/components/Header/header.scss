@@ -1,0 +1,49 @@
+
+@import '../../assets/styles/colors.scss';
+
+.header__link {
+    color: $color_white;
+    margin-right: 13px;
+    font-size: 11px;
+}
+
+.dropdown-menu {
+    background-color: $btn_wright;
+    font-size: 12px;
+    border-radius: 0;
+
+    .dropdown-item {
+        color: $color_white;
+
+        &:hover {
+            background-color: $color_blue;
+        }
+    }
+}
+.nav-link {
+    color: $color_white !important;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color:$color_blue !important ;
+}
+
+.dropdown-toggle::after {
+    color: $color_white;
+}
+
+  
+.btn {
+    margin-left: 1rem;
+}
+  
+.d-flex {
+    display: flex;
+}
+  
+.ms-3 {
+    margin-left: 1rem;
+}
+
+.form-control-sm{
+    width: 150px;
+}

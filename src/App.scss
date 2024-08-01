@@ -1,20 +1,13 @@
-@font-face {
-  font-family: "Robotto";
-  src: url("../fonts/Roboto-Light.ttf") format("ttf"), url("../fonts/Roboto-Medium.ttf") format("ttf"), url("../fonts/Roboto-Regular.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Regular.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
+
+
+@import './assets/styles/colors.scss';
+@import './assets/styles/fonts.scss';
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  background: #181818;
-  color: #FFFFFF;
+  background: $color_body;
+  color: $color_white;
 }
 
 .main-container {
@@ -26,11 +19,11 @@ body {
 .btn {
   font-weight: 500;
   font-size: 12px;
-  color: #FFFFFF;
+  color: $color_white;
 }
 
 .btn-wright {
-  background: #3137C9;
+  background: $btn_wright;
   box-shadow: 0px 7px 17px -10px rgba(32, 84, 219, 0.35);
 }
 
@@ -48,28 +41,28 @@ h5 {
 p {
   font-weight: 300;
   font-size: 14px;
-  color: #D2D2D2;
+  color: $color_subtitle;
 }
 
 .subtitle {
-  color: #D2D2D2;
+  color: $color_subtitle;
   font-size: 14px;
   line-height: 150%;
 }
 
 .secondary-subtitle {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  color: #828282;
+  color: $secondary_subtitle;
   margin-top: 20px;
 }
 
 .content-part,
 .article__item,
 .result__item {
-  background-color: #202020;
+  background-color: $color_bg;
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.35);
   border-radius: 5px;
   margin-bottom: 30px;
@@ -77,9 +70,9 @@ p {
 }
 
 .circle {
-  background: #FFFFFF;
+  background: $color_white;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   margin: 26px 25px;
-}/*# sourceMappingURL=App.css.map */
+}

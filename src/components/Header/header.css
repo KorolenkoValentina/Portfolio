@@ -1,0 +1,45 @@
+.header__link {
+  color: #FFFFFF;
+  margin-right: 13px;
+  font-size: 11px;
+}
+
+.dropdown-menu {
+  background-color: #3137C9;
+  font-size: 12px;
+  border-radius: 0;
+}
+.dropdown-menu .dropdown-item {
+  color: #FFFFFF;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: #107EFF;
+}
+
+.nav-link {
+  color: #FFFFFF !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: #107EFF !important;
+}
+
+.dropdown-toggle::after {
+  color: #FFFFFF;
+}
+
+.btn {
+  margin-left: 1rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ms-3 {
+  margin-left: 1rem;
+}
+
+.form-control-sm {
+  width: 150px;
+}/*# sourceMappingURL=header.css.map */

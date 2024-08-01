@@ -1,0 +1,58 @@
+@import '../../../assets/styles/colors.scss';
+
+.screen {
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    width: 100%;
+}
+
+#app {
+    padding: 13px 0;
+
+    .btn-success,
+    .btn-outline-primary {
+        color: $color_blue;
+        border-style: none;
+        font-size: 14px;
+        border-color: transparent;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    .form-control {
+        color: $color-sub_3;
+        background-color: $color_body;
+        border-radius: 5px;
+        border-style: none;
+        background-clip: none;
+        box-shadow: 0 0 0 0.8px $btn_wright;
+    }
+
+    .form-button {
+        width: 100%
+    }
+
+    #comment {
+        -webkit-border-radius: .25rem;
+        border-radius: .25rem;
+        margin-bottom: 15px;
+        -webkit-box-shadow: 0 0 10px rgba(153, 153, 153, .5);
+        box-shadow: 0 0 10px rgba(153, 153, 153, .5)
+    }
+
+    p,
+    h5 {
+        padding: 7px 10px
+    }
+
+}
