@@ -14,7 +14,7 @@ const Header: React.FC = () => {
                             <Nav.Link as={NavLink} to="/" className='header__link'>Home</Nav.Link>
                             <Nav.Link as={NavLink} to="/about" className='header__link'>About me</Nav.Link>
                             <NavDropdown className='header__link' title="Articles" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={NavLink} to="/services">Website creation</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/articles">Website creation</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Internet marketing</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Video Promotion</NavDropdown.Item>
                             </NavDropdown>

@@ -76,3 +76,25 @@ p {
   border-radius: 50%;
   margin: 26px 25px;
 }
+.profile,
+.article-reading,
+.modal-form {
+    .form-control {
+        background-color: transparent;
+        border-bottom: 1px solid $color-sub_3 !important;
+        border: none;
+        border-radius:0
+    }
+
+    label {
+        font-size: 14px;
+        color: $color-sub_3;
+       
+    }
+
+    .btn-wright {
+        border-radius: 5px;
+        padding: 8px 15px;
+        margin-top: 25px;
+    }
+}

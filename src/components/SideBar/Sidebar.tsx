@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import './sideBar.scss';
+import {  Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom'; 
+import Modal from '../Modal/ModalPage';
 import SidebarImg from '../../assets/images/sidebar-img.jpg'
 import SideBarPhoto from '../../assets/images/sidebar-photo.svg'
 
 const Sidebar: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
     return (
+      <>
       <aside className="sidebar-section">
         <div className="sidebar-section__img--content">
           <img src={SidebarImg} alt="sidebar" className="img-fluid" />
@@ -14,9 +22,9 @@ const Sidebar: React.FC = () => {
           <div className="title">Dmitry Valak</div>
           <p>front-end developer blog</p>
           <ul className="social">
-            <li><a href="#" className="instagram" target="_blank" rel="noopener noreferrer"></a></li>
-            <li><a href="#" className="vk" target="_blank" rel="noopener noreferrer"></a></li>
-            <li><a href="#" className="pinterest" target="_blank" rel="noopener noreferrer"></a></li>
+            <li><a href="https://www.instagram.com" className="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a></li>
+            <li><a href="https://www.facebook.com" className="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a></li>
+            <li><a href="https://www.pinterest.com" className="pinterest" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"></a></li>
           </ul>
           <div className="subtitle">
           Front-end developer. Practitioner of website layout.
@@ -24,11 +32,13 @@ const Sidebar: React.FC = () => {
             in the creation of sites of varying complexity.
           </div>
           <div className="btn-box d-flex justify-content-between">
-            <a className="btn" href="mywork.html">My work</a>
-            <button className="btn btn-wright" id="open-form-modal-btn">Write to me</button>
+            <Nav.Link className="btn" as={NavLink} to="/advertisement">My work</Nav.Link>
+            <button className="btn btn-wright" id="open-form-modal-btn" onClick={openModal}>Write to me</button>
           </div>
         </div>
       </aside>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
+        </>
     );
   };
   

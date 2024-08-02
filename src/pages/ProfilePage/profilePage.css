@@ -1,0 +1,23 @@
+.file-row {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.input-file {
+  width: 100%;
+  cursor: pointer;
+  opacity: -0.8;
+  z-index: 1;
+}
+
+.file-row__text {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  z-index: 0;
+  font-size: 14px;
+  color: #107EFF;
+  text-decoration: underline;
+  cursor: pointer;
+}/*# sourceMappingURL=ProfilePage.css.map */

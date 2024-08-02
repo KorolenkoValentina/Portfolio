@@ -1,0 +1,32 @@
+@import '../../assets/styles/colors.scss';
+
+
+.my-work {
+    .my-work__item {
+        margin-top: 30px;
+    }
+
+    .my-work__item--content {
+        background: $color_bg;
+        padding: 25px 35px;
+
+        .subtitle {
+            font-weight: 300;
+            font-size: 16px;
+            margin: 30px 0;
+        }
+    }
+
+    .btn-wright {
+        border-radius: 5px;
+        margin: 90px 0 25px 214px;
+    }
+}
+
+.btn-work {
+    padding: 4px 9px;
+    background: $mywork_btn;
+    border-radius: 3px;
+    border: none;
+    margin-right: 15px;
+}

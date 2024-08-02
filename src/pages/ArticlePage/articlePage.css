@@ -1,0 +1,32 @@
+.article__item {
+  margin-top: 75px;
+}
+.article__item .subtitle {
+  margin-bottom: 25px;
+}
+
+.article-reading .title {
+  font-size: 16px;
+  margin-top: 35px;
+}
+.article-reading .subtitle {
+  color: #F3EBA2;
+  font-weight: 500;
+  text-decoration: none;
+}
+.article-reading .secondary-subtitle {
+  margin: 5px 0 24px;
+}
+
+.discussion-form {
+  color: #FFFFFF;
+  background-color: #202020;
+  border-radius: 0;
+  border: none;
+}
+
+.subtitle-btn {
+  color: #107EFF;
+  text-decoration: none;
+  margin-top: 20px;
+}/*# sourceMappingURL=articlePage.css.map */

@@ -82,4 +82,26 @@ p {
   height: 5px;
   border-radius: 50%;
   margin: 26px 25px;
+}
+
+.profile .form-control,
+.article-reading .form-control,
+.modal-form .form-control {
+  background-color: transparent;
+  border-bottom: 1px solid #757575 !important;
+  border: none;
+  border-radius: 0;
+}
+.profile label,
+.article-reading label,
+.modal-form label {
+  font-size: 14px;
+  color: #757575;
+}
+.profile .btn-wright,
+.article-reading .btn-wright,
+.modal-form .btn-wright {
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin-top: 25px;
 }/*# sourceMappingURL=App.css.map */

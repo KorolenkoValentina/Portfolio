@@ -1,0 +1,24 @@
+.my-work .my-work__item {
+  margin-top: 30px;
+}
+.my-work .my-work__item--content {
+  background: #202020;
+  padding: 25px 35px;
+}
+.my-work .my-work__item--content .subtitle {
+  font-weight: 300;
+  font-size: 16px;
+  margin: 30px 0;
+}
+.my-work .btn-wright {
+  border-radius: 5px;
+  margin: 90px 0 25px 214px;
+}
+
+.btn-work {
+  padding: 4px 9px;
+  background: #EA8C1E;
+  border-radius: 3px;
+  border: none;
+  margin-right: 15px;
+}/*# sourceMappingURL=advertisementPage.css.map */

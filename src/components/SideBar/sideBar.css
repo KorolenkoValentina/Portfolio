@@ -25,7 +25,7 @@
 .sidebar-section__content .social {
   width: 105px;
   display: flex;
-  margin: 18px auto 60px;
+  margin: 18px auto;
   list-style: none;
   background-image: url("../../assets/images/sidebar-social.png");
 }
@@ -35,8 +35,8 @@
   transition: 0.3s ease-in-out;
   width: 26px;
   height: 26px;
-  margin-left: -10px;
-  margin-right: 23px;
+  margin-left: -32px;
+  margin-right: 46px;
   border-radius: 50%;
 }
 .sidebar-section__content .social a:hover {
