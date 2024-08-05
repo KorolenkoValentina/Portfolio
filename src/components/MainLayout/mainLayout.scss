@@ -1,5 +1,11 @@
 .main-layout {
     display: flex;
+    .sidebar-section {
+    
+        @media (max-width: 768px) {
+          display: none; 
+        }
+    }
 }
 
 .main-content {

@@ -45,16 +45,18 @@ const AdvertisementPage: React.FC = () => {
           <div className="my-work__item--content">
             <div className="title">{item.title}</div>
             <div className="subtitle">{item.subtitle}</div>
-            <div className="btn-box d-flex justify-content-center">
+            <div className="btn-box d-flex justify-content-between">
               {item.tags.map((tag, tagIndex) => (
                 <button key={tagIndex} className="btn btn-work" type="submit">
                   {tag}
                 </button>
               ))}
             </div>
-            <button className="btn btn-wright " type="submit">
-              {item.linkText}
-            </button>
+            <div className="d-flex justify-content-end">
+                <button className="btn btn-wright" type="submit">
+                  {item.linkText}
+                </button>
+              </div>
           </div>
         </div>
       ))}

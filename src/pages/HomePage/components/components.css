@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.btn-read {
+  color: #3137C9 !important;
+}
+
 #app {
   padding: 13px 0;
 }

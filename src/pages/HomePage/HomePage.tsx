@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './homePage.scss';
 import Header from '../../components/Header/Header';
+// import { useSearch } from '../../components/SearchContext/SearchContext';
 import ContentSection from './components/ContentSection';
 import VideoBlog from './components/VideoBlog';
 import AboutMeFirst from '../../assets/images/aboutme-1.png'
@@ -13,9 +14,16 @@ import Baner3 from '../../assets/images/baner-3.jpg'
 
 function HomePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const aboutMeItems = [
+    { src: AboutMeFirst, title: 'Relaxing in nature', subtitle: '21.09.2020' },
+    { src: AboutMeSecond, title: 'Finalizing a complex project', subtitle: '15.09.2020' },
+    { src: AboutMeThird, title: 'Moved into a new apartment', subtitle: '11.09.2020' },
+    { src: AboutMeForth, title: 'Autumn is here!', subtitle: '28.08.2020' }
+  ];
     const handleFileSelect = () => {
       if (fileInputRef.current) {
       fileInputRef.current.click();
@@ -34,32 +42,21 @@ function HomePage() {
         setSelectedFile(null);
       }
     };
+ 
 
+   
     return (
       <div className="container">
-        <Header />
+        <Header  />
         <section className="about-me">
           <div className="about-me-content d-flex justify-content-between">
-            <div className="about-me__item">
-              <img src={AboutMeFirst} alt="aboutme" className="img-fluid" />
-              <p className="about-me__item--title">Relaxing in nature</p>
-              <p className="about-me__item--subtitle">21.09.2020</p>
+          {aboutMeItems.map((item, index) => (
+            <div className="about-me__item" key={index}>
+              <img src={item.src} alt="aboutme" className="img-fluid" />
+              <p className="about-me__item--title">{item.title}</p>
+              <p className="about-me__item--subtitle">{item.subtitle}</p>
             </div>
-            <div className="about-me__item">
-              <img src={AboutMeSecond} alt="aboutme" className="img-fluid" />
-              <p className="about-me__item--title">Finalizing a complex project</p>
-              <p className="about-me__item--subtitle">15.09.2020</p>
-            </div>
-            <div className="about-me__item">
-              <img src={AboutMeThird} alt="aboutme" className="img-fluid" />
-              <p className="about-me__item--title">Moved into a new apartment</p>
-              <p className="about-me__item--subtitle">11.09.2020</p>
-            </div>
-            <div className="about-me__item">
-                <img src={AboutMeForth} alt="aboutme" className="img-fluid" />
-                <p className="about-me__item--title">Autumn is here!</p>
-                <p className="about-me__item--subtitle">28.08.2020</p>
-            </div>
+          ))}
           </div>
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Write something"

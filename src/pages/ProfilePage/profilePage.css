@@ -20,4 +20,13 @@
   color: #107EFF;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .profile-content {
+    flex-direction: column-reverse;
+  }
+  .profile-content .profile-content__form {
+    text-align: center;
+  }
 }/*# sourceMappingURL=ProfilePage.css.map */

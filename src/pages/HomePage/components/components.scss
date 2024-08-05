@@ -6,7 +6,9 @@
     opacity: 1;
     width: 100%;
 }
-
+.btn-read {
+    color: $btn_wright !important;
+}
 #app {
     padding: 13px 0;
 
@@ -54,5 +56,4 @@
     h5 {
         padding: 7px 10px
     }
-
 }

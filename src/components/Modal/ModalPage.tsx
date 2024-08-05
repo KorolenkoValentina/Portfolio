@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <input type="text" className="form-control" id="user-message" placeholder="text" />
             <label htmlFor="user-message">Message text</label>
           </div>
-          <button className="btn btn-wright mb-5" id="launch-btn" type="submit">Submit</button>
+          <button className="btn btn-wright" id="launch-btn" type="submit">Submit</button>
           <p className="modal-form__subtitle">e-mail: info@mywebsite.ru тел: +943-232-856-22</p>
         </form>
       </div>

@@ -2,9 +2,10 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Header from '../../components/Header/Header';
 import './profilePage.scss';
-import Avatar from '../../assets/images/profile-avatar.png'
+import DefaultAvatar from '../../assets/images/profile-avatar.png'
 
 const ProfilePage: React.FC = () => {
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,8 @@ const ProfilePage: React.FC = () => {
     confirmPassword: '',
     avatar: ''
   });
+  const [avatarPreview, setAvatarPreview] = useState(DefaultAvatar);
+  
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -24,6 +27,42 @@ const ProfilePage: React.FC = () => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          
+          if (ctx) {
+            const MAX_WIDTH = 300;
+            const MAX_HEIGHT = 300;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height) {
+              if (width > MAX_WIDTH) {
+                height *= MAX_WIDTH / width;
+                width = MAX_WIDTH;
+              }
+            } else {
+              if (height > MAX_HEIGHT) {
+                width *= MAX_HEIGHT / height;
+                height = MAX_HEIGHT;
+              }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            setAvatarPreview(canvas.toDataURL('image/png'));
+          }
+        };
+        if (event.target) {
+          img.src = event.target.result as string;
+        }
+      };
+      reader.readAsDataURL(file);
       setFormData(prevData => ({
         ...prevData,
         avatar: file.name
@@ -91,7 +130,7 @@ const ProfilePage: React.FC = () => {
           <button className="btn btn-wright" type="submit">Submit</button>
         </form>
         <div className="col-md-4">
-          <img src={Avatar} alt="avatar" />
+          <img src={avatarPreview} alt="avatar" />
           <form>
             <div className="file-row">
               <input

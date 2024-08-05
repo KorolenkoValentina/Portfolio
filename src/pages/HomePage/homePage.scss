@@ -60,7 +60,12 @@
     .btn-send {
         background: url(../../assets/images/send-btn.svg)no-repeat center;
     }
-
-
     
 }
+@media (max-width: 450px) {
+    .about-me-content, .content-box{
+        flex-wrap: wrap;
+    }
+    
+}
+

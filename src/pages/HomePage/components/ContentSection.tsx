@@ -34,8 +34,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({ title, subtitle, moreTe
                     <div className="secondary-subtitle">{category}</div>
                 </div>
                 <button className="btn btn-read" onClick={toggleText}>
-                {isExpanded ? 'Collapse' : 'View more'}
-            </button>
+                {isExpanded ? 'Collapse' : 'Read'}
+                </button>
             </div>
         </div>
     );
