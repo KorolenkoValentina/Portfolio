@@ -2,12 +2,22 @@ import React from 'react';
 import './header.scss';
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink  } from 'react-router-dom'; 
-
+import { useSearch } from '../SearchContext/SearchContext';
 import PhotoMobile from '../../assets/images/sidebar-photo.svg'
 import MobileBG from '../../assets/images/mobile.jpg'
 
 
-const Header: React.FC = () => {
+    const Header: React.FC = () => {
+    const { searchQuery, setSearchQuery } = useSearch();
+
+    const handleSearch = () => {
+       
+        setSearchQuery(searchQuery);
+      };
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value);
+    };
+   
 
 
     return (
@@ -22,7 +32,8 @@ const Header: React.FC = () => {
                                 placeholder="Blog Search"
                                 className="me-2 form-control-sm"
                                 aria-label="Search"
-                                
+                                value={searchQuery}
+                                onChange={handleInputChange}
                                 
                             />
                         </Form>
@@ -54,9 +65,10 @@ const Header: React.FC = () => {
                                     placeholder="Blog Search"
                                     className="me-2 form-control-sm"
                                     aria-label="Search"
-                                   
+                                    value={searchQuery}
+                                    onChange={handleInputChange}
                                 />
-                                <Button variant="outline-primary">Search</Button>
+                                <Button variant="outline-primary" onClick={handleSearch}>Search</Button>
                             </Form>
                         </Nav>
                     </Navbar.Collapse>

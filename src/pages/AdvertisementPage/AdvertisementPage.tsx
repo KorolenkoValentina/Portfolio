@@ -34,9 +34,10 @@ const workItems: WorkItem[] = [
 ];
 
 const AdvertisementPage: React.FC = () => {
+  
   return (
     <>
-    <Header/>
+    <Header />
     <section className="my-work">
       <h5>Мои работы</h5>
       {workItems.map((item, index) => (

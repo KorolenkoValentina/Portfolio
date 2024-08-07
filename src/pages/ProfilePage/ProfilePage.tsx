@@ -5,7 +5,6 @@ import './profilePage.scss';
 import DefaultAvatar from '../../assets/images/profile-avatar.png'
 
 const ProfilePage: React.FC = () => {
-  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -72,15 +71,17 @@ const ProfilePage: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Your form submit logic here
+
     console.log('Form submitted:', formData);
   };
+ 
+
 
   return (
     <>
-    <Header/>
+    <Header />
     <section className="profile">
-      <h5>Профиль</h5>
+      <h5>Profile</h5>
       <div className="profile-content d-flex justify-content-between">
         <form className="profile-content__form col-md-7" onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
