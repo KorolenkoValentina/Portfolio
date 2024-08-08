@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import './contentSection.scss'; 
 
 interface ContentSectionProps {
     title: string;

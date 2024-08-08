@@ -47,7 +47,7 @@ const AlbumPage: React.FC = () => {
       </div>
 
       {showModal && (
-        <div className="modal-overlay" onClick={handleClose}>
+        <div className="modal-overlay"  role="dialog" onClick={handleClose}>
           <div className="modal-content">
             <div className="modal-body">
               {selectedImage && <img src={selectedImage} alt="Selected" className="img-fluid" />}

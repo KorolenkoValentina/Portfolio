@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
           />
           <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
           <button className="btn btn-photo" type="button" onClick={handleFileSelect}></button>
-          <button className="btn btn-send" type="button" onClick={handleUpload}></button>
+          <button className="btn btn-send" type="button" onClick={handleUpload} data-testid="upload-button"></button>
         </div>
         <div className="content-part">
           {filterContent(subtitles, 'mainSubtitle').map((content, index) => (

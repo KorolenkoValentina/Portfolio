@@ -5,6 +5,9 @@ import AboutMeForth from '../assets/images/aboutMe/aboutme-4.png';
 import Baner from '../assets/images/baner.jpg';
 import Baner3 from '../assets/images/baner-3.jpg';
 
+import MyWorkImage1 from '../assets/images/my-work.jpg'
+import MyWorkImage2 from '../assets/images/my-work-2.jpg';
+
 
 interface AboutMeItem {
   src: string;
@@ -28,6 +31,15 @@ export interface ReadingItemProps {
   title: string;
   date: string;
   link: string;
+  
+}
+interface WorkItem {
+  imageSrc: string;
+  altText: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  linkText: string;
 }
 export const aboutMeItems: AboutMeItem[] = [
   { src: AboutMeFirst, title: 'Relaxing in nature', subtitle: '21.09.2020'},
@@ -83,5 +95,24 @@ export const articleContent = [
       "Begin by selecting a template or theme that closely aligns with your vision. Customize it to fit your needs by modifying colors, fonts, and layout elements. This approach allows you to focus on content creation rather than starting from scratch. Make use of pre-built components and plugins to add functionalities without extensive coding.",
       "When adding content, keep it organized and visually appealing. Use high-quality images and clear, concise text to engage your audience. Ensure your website is responsive, meaning it looks and functions well on various devices, including desktops, tablets, and smartphones. Testing is crucial to ensure that your website works correctly across different browsers and devices. Utilize browser developer tools and online testing platforms to identify and fix any issues. Finally, publish your website with a reliable hosting provider and set up analytics to track its performance. Regularly update your content and monitor user feedback to make continuous improvements."
     ]
+  }
+];
+
+export const workItems: WorkItem[] = [
+  {
+    imageSrc: MyWorkImage1,
+    altText: 'my-work-1',
+    title: 'altermono.com',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.',
+    tags: ['design', 'website development', 'SMM'],
+    linkText: 'Go to site'
+  },
+  {
+    imageSrc: MyWorkImage2,
+    altText: 'my-work-2',
+    title: 'codedoco.com',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas.',
+    tags: ['design', 'website development', 'SMM'],
+    linkText: 'Go to site'
   }
 ];

@@ -140,8 +140,9 @@ const ProfilePage: React.FC = () => {
                 name="fileInput"
                 type="file"
                 onChange={handleFileChange}
+                data-testid="fileInput"
               />
-              <div className="file-row__text">choose an avatar</div>
+              <div className="file-row__text" >choose an avatar</div>
             </div>
           </form>
         </div>
