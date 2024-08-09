@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import './articlePage.scss';
 import Header from '../../components/Header/Header';
 import { useSearch } from '../../components/SearchContext/SearchContext';
 import { readingItems, ReadingItemProps, articleContent } from '../../data/contentData';
 import ArticleBaner from '../../assets/images/article-baner.jpg'
 
-
+interface Comment {
+  id: number;
+  text: string;
+}
 
   const ArticleReading: React.FC = () => {
   const { searchQuery } = useSearch();
@@ -39,16 +42,66 @@ const ReadingItem: React.FC<ReadingItemProps> = ({ title, date, link }) => {
 };
 
 const DiscussionForm: React.FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentText, setCommentText] = useState('');
+  const [selectedComments, setSelectedComments] = useState<number[]>([]);
+
+  const handleCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentText(e.target.value);
+  };
+
+  const handleSend = () => {
+    if (commentText.trim()) {
+      setComments([...comments, { id: Date.now(), text: commentText }]);
+      setCommentText('');
+    }
+  };
+
+  const handleCheckboxChange = (id: number) => {
+    setSelectedComments((prev) =>
+      prev.includes(id) ? prev.filter((commentId) => commentId !== id) : [...prev, id]
+    );
+  };
+
+  const handleDeleteSelected = () => {
+    setComments(comments.filter((comment) => !selectedComments.includes(comment.id)));
+    setSelectedComments([]);
+  };
   return (
     <>
       <div className="title">Discussion</div>
+      <div className="comments-list">
+        {comments.map((comment) => (
+          <div key={comment.id}  className="comment-item">
+            <input
+              type="checkbox"
+              checked={selectedComments.includes(comment.id)}
+              onChange={() => handleCheckboxChange(comment.id)}
+            />
+            <span>{comment.text}</span>
+          </div>
+        ))}
+        {selectedComments.length > 0 && (
+        <button className="btn btn-primary mt-3" onClick={handleDeleteSelected} disabled={selectedComments.length === 0}>
+          Delete comments
+        </button>
+      )}
+      </div>
+
+      
       <div className="form-floating">
-        <input type="text" className="form-control discussion-form" id="floatingInput" placeholder="name" />
+        <input  type="text"
+          className="form-control discussion-form"
+          id="floatingInput"
+          placeholder="Comment text"
+          value={commentText}
+          onChange={handleCommentChange}/>
         <label htmlFor="floatingInput">Comment text</label>
       </div>
-      <button className="btn btn-wright" type="submit">
+      <button className="btn btn-wright" type="submit" onClick={handleSend}>
         Send
       </button>
+
     </>
   );
 };

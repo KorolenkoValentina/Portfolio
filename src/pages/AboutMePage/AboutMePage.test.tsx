@@ -10,37 +10,28 @@ jest.mock('../../components/Header/Header', () => () => <div data-testid="header
 
 
 describe('AboutMePage', () => {
-  test('should  renders without errors', () => {
+  const renderWithRouters =()=>{
     render(
       <BrowserRouter>
         <AboutMePage />
       </BrowserRouter>
-    );
+    )
+  }
+  test('should  renders without errors', () => {
+    renderWithRouters()
   });
   test('renders Header component', () => {
-    render(
-      <BrowserRouter>
-        <AboutMePage />
-      </BrowserRouter>
-    );
+    renderWithRouters()
     const header = screen.getByTestId('header');
     expect(header).toBeInTheDocument();
   });
   test('should  render the title "About Me"', () => {
-    render(
-      <BrowserRouter>
-        <AboutMePage />
-      </BrowserRouter>
-    );
+    renderWithRouters()
     const title = screen.getByText('About Me');
     expect(title).toBeInTheDocument();
   });
   test('should render information blocks', () => {
-    render(
-        <BrowserRouter>
-          <AboutMePage />
-        </BrowserRouter>
-      );
+    renderWithRouters()
       
       aboutMeItems.forEach((item) => {
         const link = screen.getByRole('link', { name: new RegExp(item.title, 'i') });
@@ -56,8 +47,8 @@ describe('AboutMePage', () => {
         
         const itemSubtitle = screen.getByText(item.subtitle);
         expect(itemSubtitle).toBeInTheDocument();
-      });
-    });
+    } );
+  });
  
 
 

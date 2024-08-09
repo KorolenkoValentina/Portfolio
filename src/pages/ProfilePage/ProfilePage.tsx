@@ -4,16 +4,44 @@ import Header from '../../components/Header/Header';
 import './profilePage.scss';
 import DefaultAvatar from '../../assets/images/profile-avatar.png'
 
+
+interface FormData {
+  name: string;
+  email: string;
+  newPassword: string;
+  confirmPassword: string;
+  avatar: string;
+}
+
 const ProfilePage: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     newPassword: '',
     confirmPassword: '',
     avatar: ''
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    newPassword: '',
+    confirmPassword: ''
+  });
   const [avatarPreview, setAvatarPreview] = useState(DefaultAvatar);
-  
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password: string) => {
+    const passwordRegex = /^(?=.*[A-Za-z]).{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const validateConfirmPassword = () => {
+    return formData.newPassword && formData.confirmPassword && formData.newPassword === formData.confirmPassword;
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -72,7 +100,27 @@ const ProfilePage: React.FC = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    console.log('Form submitted:', formData);
+    const newErrors = {
+      name: formData.name ? '' : 'Name is required',
+      email: validateEmail(formData.email) ? '' : 'Please enter a valid email address',
+      newPassword: validatePassword(formData.newPassword) ? '' : 'Password must be at least 8 characters long and contain at least one letter',
+      confirmPassword: validateConfirmPassword() ? '' : 'Passwords do not match'
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some(error => error !== '');
+    if (!hasErrors) {
+      console.log('Form submitted:', formData);
+      setFormData({
+        name: '',
+        email: '',
+        newPassword: '',
+        confirmPassword: '',
+        avatar: ''
+      });
+      setAvatarPreview(DefaultAvatar);
+    }
   };
  
 
@@ -87,48 +135,52 @@ const ProfilePage: React.FC = () => {
           <div className="form-floating mb-3">
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${errors.name ? 'is-invalid' : ''}`}
               id="name"
               placeholder="Enter a name"
               value={formData.name}
               onChange={handleInputChange}
             />
             <label htmlFor="name">Enter a name</label>
+            {errors.name && <div className="invalid-feedback">{errors.name}</div>}
           </div>
           <div className="form-floating mb-3">
             <input
               type="email"
-              className="form-control"
+              className={`form-control ${errors.email ? 'is-invalid' : ''}`}
               id="email"
               placeholder="name@example.com"
               value={formData.email}
               onChange={handleInputChange}
             />
             <label htmlFor="email">Email address</label>
+            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
           </div>
           <div className="form-floating mb-3">
             <input
               type="password"
-              className="form-control"
+              className={`form-control ${errors.newPassword ? 'is-invalid' : ''}`}
               id="newPassword"
               placeholder="New password"
               value={formData.newPassword}
               onChange={handleInputChange}
             />
             <label htmlFor="newPassword">New password</label>
+            {errors.newPassword && <div className="invalid-feedback">{errors.newPassword}</div>}
           </div>
           <div className="form-floating mb-3">
             <input
               type="password"
-              className="form-control"
+              className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
               id="confirmPassword"
               placeholder="Confirm password"
               value={formData.confirmPassword}
               onChange={handleInputChange}
             />
             <label htmlFor="confirmPassword">Confirm password</label>
+            {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
           </div>
-          <button className="btn btn-wright" type="submit">Submit</button>
+          <button className="btn btn-wright" type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         <div className="col-md-4">
           <img src={avatarPreview} alt="avatar" />

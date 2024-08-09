@@ -11,12 +11,15 @@ jest.mock('../Modal/ModalPage', () => {
 });
 
 describe('Sidebar', () => {
-  test('should render the title, text, and image', () => {
+  const renderWithRouters =()=>{
     render(
       <Router>
-        <Sidebar />
-      </Router>
-    );
+      <Sidebar />
+    </Router>
+    )
+  }
+  test('should render the title, text, and image', () => {
+    renderWithRouters()
 
     const title = screen.getByText('Dmitry Valak');
     expect(title).toBeInTheDocument();
@@ -32,11 +35,7 @@ describe('Sidebar', () => {
   });
 
   test('should render links to social networks', () => {
-    render(
-      <Router>
-        <Sidebar />
-      </Router>
-    );
+    renderWithRouters()
 
     const instagramLink = screen.getByLabelText('Instagram');
     expect(instagramLink).toBeInTheDocument();
@@ -49,11 +48,7 @@ describe('Sidebar', () => {
   });
 
   test('should display a modal window when you click on the "Write to me" button', () => {
-    render(
-      <Router>
-        <Sidebar />
-      </Router>
-    );
+    renderWithRouters()
 
     const openModalButton = screen.getByText('Write to me');
     fireEvent.click(openModalButton);
@@ -63,11 +58,7 @@ describe('Sidebar', () => {
   });
 
   test('should close the modal window when you click on the overlay', () => {
-    render(
-      <Router>
-        <Sidebar />
-      </Router>
-    );
+    renderWithRouters()
 
     const openModalButton = screen.getByText('Write to me');
     fireEvent.click(openModalButton);
@@ -79,11 +70,7 @@ describe('Sidebar', () => {
   });
 
   test('should navigate when clicking on the "My work" link', () => {
-    render(
-      <Router>
-        <Sidebar />
-      </Router>
-    );
+    renderWithRouters()
 
     const myWorkLink = screen.getByText('My work');
     fireEvent.click(myWorkLink);
